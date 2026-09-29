@@ -1,0 +1,141 @@
+window.MUSUBU_SHOPS = [
+  {
+    "shop_id": "dessert-01",
+    "name": "딸기담은 오후",
+    "category": "dessert",
+    "address": "논산시 데모길 1 (가상 주소)",
+    "business_hours": "10:00–19:00 · 월요일 휴무",
+    "products": [
+      {
+        "name": "논산 딸기 파르페",
+        "price": "8,000원"
+      },
+      {
+        "name": "딸기 크림 라테",
+        "price": "6,000원"
+      }
+    ],
+    "description": "논산 딸기의 달콤함을 담은 작은 디저트 가게. 주민의 이야기와 함께 쉬어가는 오후를 제안합니다.",
+    "image_url": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=dessert-01",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  },
+  {
+    "shop_id": "dessert-02",
+    "name": "온기 딸기공방",
+    "category": "dessert",
+    "address": "논산시 데모길 2 (가상 주소)",
+    "business_hours": "11:00–20:00 · 화요일 휴무",
+    "products": [
+      {
+        "name": "딸기 생크림 케이크",
+        "price": "7,500원"
+      },
+      {
+        "name": "딸기 쿠키 상자",
+        "price": "12,000원"
+      }
+    ],
+    "description": "지역 농산물로 만드는 디저트 공방을 가정한 발표용 상점입니다. 여행의 달콤한 기억을 담아보세요.",
+    "image_url": "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=dessert-02",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  },
+  {
+    "shop_id": "meal-01",
+    "name": "연무 들녘밥상",
+    "category": "meal",
+    "address": "논산시 데모길 3 (가상 주소)",
+    "business_hours": "11:00–20:00 · 쉬는 시간 15:00–17:00",
+    "products": [
+      {
+        "name": "들녘 제철 정식",
+        "price": "12,000원"
+      },
+      {
+        "name": "나물 비빔밥",
+        "price": "9,000원"
+      }
+    ],
+    "description": "제철 채소와 정갈한 반찬으로 지역의 일상을 만나는 한식 밥상. 농가와 상점의 연결을 보여주는 가상 사례입니다.",
+    "image_url": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=meal-01",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  },
+  {
+    "shop_id": "meal-02",
+    "name": "강경 한 끼",
+    "category": "meal",
+    "address": "논산시 데모길 4 (가상 주소)",
+    "business_hours": "11:30–19:30 · 수요일 휴무",
+    "products": [
+      {
+        "name": "마을 한상 정식",
+        "price": "13,000원"
+      },
+      {
+        "name": "계절 채소 덮밥",
+        "price": "10,000원"
+      }
+    ],
+    "description": "골목을 둘러본 뒤 편하게 머물 수 있는 식당을 상상했습니다. 음식과 사람의 이야기가 이어지는 한 끼입니다.",
+    "image_url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=meal-02",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  },
+  {
+    "shop_id": "gift-01",
+    "name": "논산 기억상점",
+    "category": "gift",
+    "address": "논산시 데모길 5 (가상 주소)",
+    "business_hours": "10:00–18:00 · 월요일 휴무",
+    "products": [
+      {
+        "name": "논산 풍경 엽서 세트",
+        "price": "5,000원"
+      },
+      {
+        "name": "딸기 키링",
+        "price": "7,000원"
+      }
+    ],
+    "description": "여행에서 만난 풍경을 작은 기념품으로 간직하는 공간. 지역 작가와 함께하는 상점을 가정했습니다.",
+    "image_url": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=gift-01",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  },
+  {
+    "shop_id": "gift-02",
+    "name": "마을 한 조각",
+    "category": "gift",
+    "address": "논산시 데모길 6 (가상 주소)",
+    "business_hours": "10:30–18:30 · 목요일 휴무",
+    "products": [
+      {
+        "name": "마을 이야기 노트",
+        "price": "8,000원"
+      },
+      {
+        "name": "여행 선물 꾸러미",
+        "price": "15,000원"
+      }
+    ],
+    "description": "주민의 이야기를 엽서와 생활 소품에 담는 가상 편집숍입니다. 작은 소비가 지역 참여로 이어지는 모습을 보여줍니다.",
+    "image_url": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80",
+    "phone": "000-0000-0000 (가상)",
+    "external_url": "https://minteset0-afk.github.io/musubu-tour-demo/demo-shop.html?shop=gift-02",
+    "map_url": "https://map.naver.com/p/search/%EB%85%BC%EC%82%B0%EC%8B%9C",
+    "is_demo": true
+  }
+];
+

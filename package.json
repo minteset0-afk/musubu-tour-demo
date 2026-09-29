@@ -1,0 +1,11 @@
+{
+  "name": "musubu-tour-demo",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "build:vendor": "node scripts/build-vendor.cjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.2"
+  }
+}

@@ -8,6 +8,7 @@
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:#f3f7f5;color:#18241f}.app{max-width:760px;margin:auto;min-height:100vh;background:#fff}.hero{padding:28px 20px 30px;background:linear-gradient(145deg,#0e5c49,#143e36);color:#fff;border-radius:0 0 28px 28px}.brand{font-weight:900;letter-spacing:.02em}.hero h1{font-size:31px;line-height:1.25;margin:14px 0 10px}.hero p{margin:0;line-height:1.7;opacity:.94}.flow{display:flex;gap:7px;overflow:auto;margin-top:17px;padding-bottom:2px}.flow span{white-space:nowrap;border:1px solid rgba(255,255,255,.3);padding:7px 10px;border-radius:999px;font-size:12px}.hero .qrbtn{display:inline-flex;margin-top:18px;color:#0e5c49;background:#fff;text-decoration:none;font-weight:900;border-radius:13px;padding:12px 14px}.main{padding:16px}.card{border:1px solid #dbe8e2;border-radius:22px;padding:20px;margin-bottom:14px;background:#fff;box-shadow:0 5px 20px rgba(17,77,60,.06)}.tag{display:inline-block;background:#e8f5ef;color:#0e5c49;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}.card h2{font-size:24px;margin:10px 0 8px}.card p{line-height:1.68;color:#4a5a53}.audioBox{background:#eef7f3;border:1px solid #cfe4da;border-radius:18px;padding:16px;margin-top:14px}.audioBox strong{display:block;margin-bottom:8px;color:#0e5c49}.audioBox audio{width:100%;display:block;margin:10px 0 8px;min-height:54px}.audioMeta{font-size:12px;color:#587067;line-height:1.55}.listenBtn{display:flex;align-items:center;justify-content:center;width:100%;border:0;border-radius:14px;background:#0e5c49;color:#fff;font-size:17px;font-weight:900;padding:14px;margin:10px 0;cursor:pointer}.status{font-size:13px;line-height:1.5;padding:10px 12px;border-radius:12px;background:#eff8f4;color:#245747}.shops{display:grid;gap:10px;margin-top:12px}.shop{border:1px solid #dbe8e2;border-radius:15px;padding:14px}.shop b{display:block;margin-bottom:5px}.shop small{color:#687870}.stars{display:flex;gap:6px;margin:10px 0}.star{font-size:32px;border:0;background:none;color:#c9d3cf;padding:0;cursor:pointer}.star.on{color:#f1b84b}.review{width:100%;min-height:90px;border:1px solid #cbd8d3;border-radius:13px;padding:12px;font:inherit}.submit{width:100%;border:0;border-radius:14px;background:#0e5c49;color:#fff;font-weight:900;font-size:16px;padding:14px;margin-top:10px;cursor:pointer}.voucher{border:2px dashed #82b2a0;border-radius:17px;background:#eff8f4;padding:18px;text-align:center}.voucher.locked{filter:grayscale(.9);opacity:.55}.voucher strong{display:block;color:#0e5c49;font-size:30px;margin:5px}.voucher button{border:1px solid #0e5c49;background:#fff;color:#0e5c49;border-radius:11px;padding:10px 12px;font-weight:900}.notice{font-size:12px;color:#6b7873;line-height:1.55;margin-top:10px}footer{text-align:center;font-size:12px;color:#71817a;padding:8px 16px 30px}
 </style>
+<link rel="stylesheet" href="shops.css">
 </head>
 <body>
 <div class="app">
@@ -39,26 +40,29 @@
       <span class="tag">NEARBY · 주변 상점</span>
       <h2>이야기와 가까운 지역 상점</h2>
       <div class="shops">
-        <div class="shop"><b>🍓 논산 딸기 디저트</b><small>도보 3분 · 지역 농산물 디저트</small></div>
-        <div class="shop"><b>🍚 논산 로컬 밥상</b><small>도보 5분 · 지역 식재료 한식</small></div>
-        <div class="shop"><b>🎁 논산 기념품 상점</b><small>도보 6분 · 지역 특산품·기념품</small></div>
+        <button type="button" class="shop category" data-category="dessert" aria-expanded="false"><b>🍓 논산 딸기 디저트 <span>›</span></b><small>지역 농산물 디저트 · 가상 업체 2곳</small></button>
+        <button type="button" class="shop category" data-category="meal" aria-expanded="false"><b>🍚 논산 로컬 밥상 <span>›</span></b><small>지역 식재료 한식 · 가상 업체 2곳</small></button>
+        <button type="button" class="shop category" data-category="gift" aria-expanded="false"><b>🎁 논산 기념품 상점 <span>›</span></b><small>지역 특산품·기념품 · 가상 업체 2곳</small></button>
       </div>
+      <div id="shopResults" hidden><h3 id="categoryTitle" tabindex="-1"></h3><div id="shopList" class="shop-list"></div></div>
       <p class="notice">※ 현재 상점명은 발표용 가상 예시이며 실제 시범 운영 시 협력 상점으로 교체합니다.</p>
     </section>
 
     <section class="card" id="review">
       <span class="tag">REVIEW · 후기 참여</span>
-      <h2>오늘의 이야기는 어땠나요?</h2>
-      <div class="stars" aria-label="별점"><button class="star" data-n="1">★</button><button class="star" data-n="2">★</button><button class="star" data-n="3">★</button><button class="star" data-n="4">★</button><button class="star" data-n="5">★</button></div>
-      <textarea id="reviewText" class="review" placeholder="짧은 후기를 남겨주세요."></textarea>
-      <button id="submitReview" class="submit" type="button">후기 등록하고 바우처 받기</button>
-      <div id="reviewMsg" class="notice"></div>
+      <h2>이야기에서 이어진 한 줄 후기</h2>
+      <p>둘러본 상점을 선택하고 별점과 후기를 남겨주세요. 저장이 완료되면 데모 바우처가 열립니다.</p>
+      <label for="reviewShop">후기를 남길 상점</label>
+      <select id="reviewShop"><option value="">상점을 선택해주세요</option></select>
+      <button id="openReview" class="submit" type="button">선택한 상점 후기 쓰기</button>
+      <div id="reviewMsg" class="notice" role="status"></div>
     </section>
 
     <section class="card" id="voucher">
       <span class="tag">VOUCHER · 바우처</span>
       <h2>지역 상점 데모 바우처</h2>
-      <div id="voucherBox" class="voucher locked"><div>후기 참여 완료 시 사용 가능</div><strong>₩1,000</strong><div>むすぶ DEMO VOUCHER</div><button id="useVoucher" type="button" disabled>사용 처리</button></div>
+      <div id="voucherBox" class="voucher locked"><div>후기 참여 완료 시 사용 가능</div><strong>₩1,000</strong><div>MUSUBU DEMO VOUCHER</div><button id="useVoucher" type="button" disabled>사용 처리</button></div>
+      <p class="notice">발표용 모의 바우처이며 실제 결제에는 사용할 수 없습니다. 이 화면에서 저장한 후기만 발급 조건에 반영됩니다.</p>
     </section>
   </main>
   <footer>むすぶ · 논산과 후쿠오카를 잇다 · 발표용 프로토타입</footer>
@@ -71,10 +75,44 @@
   audio.addEventListener('error',function(){stat.textContent='음성 파일을 불러오지 못했습니다. 새로고침 후 다시 시도해주세요.';});
   btn.addEventListener('click',function(){audio.play().then(function(){btn.textContent='❚❚ 재생 중';}).catch(function(){stat.textContent='브라우저가 자동 재생을 제한했습니다. 아래 기본 오디오 플레이어의 ▶ 버튼을 눌러주세요.';});});
   audio.addEventListener('pause',function(){btn.textContent='▶ 이야기 바로 듣기';});
-  var rating=0, stars=[].slice.call(document.querySelectorAll('.star'));
-  stars.forEach(function(s){s.addEventListener('click',function(){rating=Number(s.dataset.n);stars.forEach(function(x){x.classList.toggle('on',Number(x.dataset.n)<=rating);});});});
-  document.getElementById('submitReview').addEventListener('click',function(){var t=document.getElementById('reviewText').value.trim();if(!rating||!t){document.getElementById('reviewMsg').textContent='별점과 한 줄 후기를 모두 입력해주세요.';return;}document.getElementById('reviewMsg').textContent='후기가 등록되었습니다. 데모 바우처가 열렸습니다.';var v=document.getElementById('voucherBox'),u=document.getElementById('useVoucher');v.classList.remove('locked');u.disabled=false;location.hash='voucher';});
-  document.getElementById('useVoucher').addEventListener('click',function(){this.textContent='사용 완료';this.disabled=true;});
+
 })();
 </script>
+<dialog id="shopDialog" aria-labelledby="detailName">
+  <div class="sheet-header"><span>むすぶ · LOCAL PLACE</span><button id="closeDetail" type="button" aria-label="상세정보 닫기">✕</button></div>
+  <div class="sheet-scroll">
+    <div class="cover-wrap"><img id="detailImage" class="detail-cover" alt=""><span class="photo-label">발표용 가상 업체 · 참고 이미지</span></div>
+    <div class="detail-content">
+      <span id="detailCategory" class="tag"></span><h2 id="detailName"></h2>
+      <div id="detailStats" class="detail-stats" aria-live="polite">후기 불러오는 중…</div>
+      <p id="detailDescription"></p>
+      <div class="detail-actions"><a id="officialLink" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a id="mapLink" target="_blank" rel="noopener noreferrer">지도에서 보기 ↗</a><button id="showReviews" type="button">MUSUBU 후기 보기</button></div>
+      <p class="notice">공식 사이트는 가상 업체 소개 데모입니다. 지도는 논산 지역 검색이며 실제 업체 위치가 아닙니다.</p>
+      <dl class="shop-info"><dt>주소</dt><dd id="detailAddress"></dd><dt>영업시간</dt><dd id="detailHours"></dd><dt>전화번호</dt><dd id="detailPhone"></dd></dl>
+      <h3>대표 메뉴 · 상품</h3><ul id="detailProducts" class="product-list"></ul>
+      <section id="detailReviews" aria-labelledby="reviewsHeading">
+        <div class="review-heading"><h3 id="reviewsHeading" tabindex="-1">MUSUBU 후기</h3><span id="liveStatus" class="live-status" role="status">연결 중…</span></div>
+        <p class="notice">최근 후기 20개를 표시합니다. 별점과 후기 수는 전체 후기를 기준으로 합니다.</p>
+        <div id="reviewList" aria-live="polite"></div><button id="retryReviews" class="text-button" type="button" hidden>다시 불러오기</button>
+        <form id="reviewForm">
+          <fieldset><legend>별점 선택</legend><div class="rating-options">
+            <label><input type="radio" name="rating" value="1" required><span>★ 1</span></label>
+            <label><input type="radio" name="rating" value="2"><span>★ 2</span></label>
+            <label><input type="radio" name="rating" value="3"><span>★ 3</span></label>
+            <label><input type="radio" name="rating" value="4"><span>★ 4</span></label>
+            <label><input type="radio" name="rating" value="5"><span>★ 5</span></label>
+          </div></fieldset>
+          <label for="reviewText">한 줄 후기</label><textarea id="reviewText" class="review" minlength="2" maxlength="500" required placeholder="2~500자로 경험을 남겨주세요. 개인정보는 적지 마세요."></textarea>
+          <button id="submitReview" class="submit" type="submit">후기 등록하고 바우처 받기</button>
+          <p id="submitStatus" class="notice" role="status"></p>
+          <button id="goVoucher" type="button" class="text-button" hidden>발급된 바우처 보기 →</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</dialog>
+<script src="vendor/supabase.js"></script>
+<script src="shops.js"></script>
+<script src="app.js"></script>
 </body></html>
+
