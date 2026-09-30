@@ -34,3 +34,15 @@ QR → 일본어 이야기 감상 → 카테고리 → 업체 상세 → 익명 
 ## 재현
 `npm ci --ignore-scripts` 다음 `npm run build:vendor`. 사이트는 별도 서버 없이 정적 파일로 동작.
 DB SQL은 이미 적용되어 있으므로 기존 프로젝트에 중복 실행하지 않음. DB 설정을 바꾸면 SQL 기록과 클라이언트 데이터도 함께 관리.
+
+## 한국어 / 日本語 (2026-09-30)
+
+- 기본 한국어. 언어 우선순위는 유효한 `?lang=ko|ja` → `localStorage['musubu.language']` → `ko`입니다.
+- `i18n.js`의 `translations.ko`, `translations.ja`에서 UI/오류/안내 문구를 관리합니다. `shopTranslations`는 기존 shop_id에 대응하는 일본어 설명과 메뉴명입니다. 상호명과 사용자 리뷰 원문은 변경하지 않습니다.
+- 언어 변경은 페이지를 다시 불러오지 않습니다. `<html lang>` 및 `lang-ko/theme-ko`, `lang-ja/theme-ja` 클래스를 바꾸고 `musubu:languagechange` 이벤트로 동적 화면을 갱신합니다. 작성 중인 후기, 선택 별점, 활성 Realtime 채널과 발급 바우처는 유지됩니다.
+- `themes.css`는 기존 한국어 녹색 테마를 유지하고 일본어에서 코랄/핑크/남색 테마를 적용합니다. 모바일 Bottom Sheet, 일본어 줄바꿈, 터치 버튼, reduced-motion 설정을 지원합니다.
+- 동일한 기존 Supabase 프로젝트, reviews 테이블, shop_id 및 RLS를 사용합니다. 별도 DB나 유료 번역 API, 추가 서버는 없습니다.
+- 일본어 발표 URL: https://minteset0-afk.github.io/musubu-tour-demo/?lang=ja
+- 한국어 발표 URL: https://minteset0-afk.github.io/musubu-tour-demo/?lang=ko
+- `qr.html`에서 두 언어 QR을 표시하고 SVG로 저장할 수 있습니다. QR 이미지는 로컬 자산이며 외부 QR API에 의존하지 않습니다.
+- `audio.js`는 기존 페이지에 포함된 일본어 MP3를 그대로 재생하고 상태 문구를 번역합니다. 브라우저 기본 오디오 컨트롤의 언어는 브라우저/운영체제 설정을 따릅니다.
