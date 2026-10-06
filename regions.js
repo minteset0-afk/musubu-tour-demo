@@ -32,6 +32,7 @@ function setRegion(next, update=true) {
 }
 document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>setRegion(b.dataset.region)));
 document.addEventListener('musubu:languagechange',render);
+document.addEventListener('DOMContentLoaded',render);
 window.addEventListener('popstate',()=>{const value=new URL(location.href).searchParams.get('region');setRegion(valid(value)?value:'nonsan',false);});
 render();
 })();
