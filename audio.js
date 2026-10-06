@@ -1,18 +1,32 @@
 (() => {
-  const I = window.MUSUBU_I18N;
-  const audio = document.getElementById('storyAudio'), button = document.getElementById('playBtn'), status = document.getElementById('audioStatus');
-  const message = (key) => I.message(status, key);
-  const syncButton = () => I.message(button, audio.paused ? 'play' : 'playing');
-  audio.addEventListener('loadedmetadata', () => message('audioLoaded'));
-  audio.addEventListener('canplay', () => message('audioReady'));
-  audio.addEventListener('error', () => message('audioError'));
-  audio.addEventListener('play', syncButton);
-  audio.addEventListener('pause', syncButton);
-  audio.addEventListener('ended', syncButton);
-  button.addEventListener('click', () => {
-    if (!audio.paused) { audio.pause(); return; }
-    audio.play().then(syncButton).catch(() => message('audioBlocked'));
-  });
-  if (audio.readyState >= 1) message('audioReady');
-  document.addEventListener('musubu:languagechange', syncButton);
+'use strict';
+const I = window.MUSUBU_I18N;
+const players = ['Donam','Tapjeong'].map(id => ({
+audio: document.getElementById('storyAudio'+id),
+button: document.getElementById('playBtn'+id),
+status: document.getElementById('audioStatus'+id),
+place: id === 'Donam' ? 'donam' : 'tapjeong'
+})).filter(p => p.audio && p.button && p.status);
+const message = (p,key) => I.message(p.status,key);
+const sync = p => I.message(p.button,p.audio.paused ? 'play':'playing');
+function source(p) {
+p.audio.pause();
+p.audio.src = 'assets/audio/'+p.place+'-'+I.lang+'.mp3';
+p.audio.load();
+message(p,'audioLoading');
+sync(p);
+}
+players.forEach(p => {
+p.audio.addEventListener('loadedmetadata',()=>message(p,'audioLoaded'));
+p.audio.addEventListener('error',()=>message(p,'audioError'));
+p.audio.addEventListener('play',()=>{players.forEach(other=>{if(other!==p)other.audio.pause();});sync(p);});
+p.audio.addEventListener('pause',()=>sync(p));
+p.audio.addEventListener('ended',()=>sync(p));
+p.button.addEventListener('click',()=>{
+if(!p.audio.paused){p.audio.pause();return;}
+p.audio.play().catch(()=>message(p,'audioBlocked'));
+});
+source(p);
+});
+document.addEventListener('musubu:languagechange',()=>players.forEach(source));
 })();
