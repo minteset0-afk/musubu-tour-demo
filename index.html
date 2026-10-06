@@ -56,7 +56,8 @@
 </main>
 <main class="main" id="fukuokaContent" hidden>
 <section class="card" id="fukuoka-story"><span class="tag" data-region-text="storyTag"></span><h2 data-region-text="storyTitle"></h2><p data-region-text="storyIntro"></p>
-<div class="region-empty"><span class="region-symbol" aria-hidden="true">✦</span><h3 data-region-text="storyPending"></h3><p data-region-text="storyNote"></p><p class="notice" data-region-text="authorNote"></p></div></section>
+<article class="destination-story" id="story-ohori" aria-labelledby="ohori-title"><img class="story-photo" src="assets/ohori.png" alt="" data-region-alt="ohoriAlt" loading="lazy" width="340" height="226"/><h3 id="ohori-title" data-region-text="ohoriTitle"></h3><span class="tag" data-region-text="ohoriLocation"></span><p data-region-text="ohoriText"></p><div class="audioBox"><strong data-i18n="storyAudioTitle">음성 이야기</strong><p data-i18n="storyAudioAvailable">한국어·일본어 음성 안내</p><button class="listenBtn" data-i18n="play" id="playBtnOhori" type="button">▶ 이야기 바로 듣기</button><audio controls id="storyAudioOhori" preload="metadata" src="assets/audio/ohori-ko.mp3"><span data-i18n="audioUnsupported"></span></audio><p class="status" id="audioStatusOhori" role="status"></p></div></article>
+<article class="destination-story" id="story-yufuin" aria-labelledby="yufuin-title"><img class="story-photo" src="assets/yufuin.png" alt="" data-region-alt="yufuinAlt" loading="lazy" width="695" height="512"/><h3 id="yufuin-title" data-region-text="yufuinTitle"></h3><span class="tag" data-region-text="yufuinLocation"></span><p data-region-text="yufuinText"></p><div class="audioBox"><strong data-i18n="storyAudioTitle">음성 이야기</strong><p data-i18n="storyAudioAvailable">한국어·일본어 음성 안내</p><button class="listenBtn" data-i18n="play" id="playBtnYufuin" type="button">▶ 이야기 바로 듣기</button><audio controls id="storyAudioYufuin" preload="metadata" src="assets/audio/yufuin-ko.mp3"><span data-i18n="audioUnsupported"></span></audio><p class="status" id="audioStatusYufuin" role="status"></p></div></article></section>
 <section class="card" id="fukuoka-shops"><span class="tag" data-region-text="shopsTag"></span><h2 data-region-text="shopsTitle"></h2><p data-region-text="shopsNote"></p><div class="shops">
 <div class="shop"><b data-region-text="cafe"></b><small data-region-text="coming"></small></div><div class="shop"><b data-region-text="food"></b><small data-region-text="coming"></small></div><div class="shop"><b data-region-text="gift"></b><small data-region-text="coming"></small></div></div></section>
 <section class="card" id="fukuoka-review"><span class="tag" data-region-text="reviewTag"></span><h2 data-region-text="reviewTitle"></h2><p data-region-text="reviewNote"></p><button class="submit" disabled type="button" data-region-text="reviewPending"></button></section>
@@ -101,6 +102,7 @@
 <script src="vendor/supabase.js"></script>
 <script src="shops.js"></script>
 <script src="app.js"></script>
-<script src="audio.js?v=20261006-audio"></script>
-<script src="regions.js?v=2"></script>
+<script src="audio.js?v=20261006-japan"></script>
+<script src="regions.js?v=3"></script>
 </body></html>
+

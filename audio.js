@@ -1,11 +1,11 @@
 (() => {
 'use strict';
 const I = window.MUSUBU_I18N;
-const players = ['Donam','Tapjeong'].map(id => ({
+const players = ['Donam','Tapjeong','Ohori','Yufuin'].map(id => ({
 audio: document.getElementById('storyAudio'+id),
 button: document.getElementById('playBtn'+id),
 status: document.getElementById('audioStatus'+id),
-place: id === 'Donam' ? 'donam' : 'tapjeong'
+place: id.toLowerCase()
 })).filter(p => p.audio && p.button && p.status);
 const message = (p,key) => I.message(p.status,key);
 const sync = p => I.message(p.button,p.audio.paused ? 'play':'playing');
