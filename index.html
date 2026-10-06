@@ -13,18 +13,19 @@
 .destination-story{margin-top:24px}.destination-story+.destination-story{border-top:1px solid #dbe8e2;padding-top:24px}.story-photo{display:block;width:100%;height:auto;border-radius:14px}.destination-story h3{font-size:22px;margin:16px 0 8px}.destination-story>p{margin:0;word-break:keep-all;overflow-wrap:anywhere}.audio-pending{font-weight:700;margin:8px 0}.lang-ja .destination-story>p{word-break:normal}
 </style>
 <link href="shops.css" rel="stylesheet"/>
-<link href="themes.css" rel="stylesheet"/></head>
+<link href="themes.css" rel="stylesheet"/><link rel="stylesheet" href="regions.css?v=1"/></head>
 <body>
 <div class="app">
 <header class="hero">
 <div class="hero-top"><div class="brand">むすぶ · NONSAN STORY TOUR</div><nav aria-label="언어 선택" class="language-switch" data-i18n-aria="language"><button aria-pressed="true" data-language="ko" lang="ko" type="button">한국어</button><span aria-hidden="true">|</span><button aria-pressed="false" data-language="ja" lang="ja" type="button">日本語</button></nav></div>
+<nav class="region-switch" aria-label="지역 선택" data-region-aria="regionLabel"><button type="button" data-region="nonsan" aria-pressed="true" data-region-text="nonsan">논산</button><button type="button" data-region="fukuoka" aria-pressed="false" data-region-text="fukuoka">후쿠오카</button></nav>
 <h1 data-i18n="heroTitle">지역민의 이야기를 듣고
 논산을 더 가까이 만나보세요.</h1>
 <p data-i18n="heroDescription">QR 하나로 주민 스토리 · 다국어 음성 · 주변 상점 · 후기 · 바우처를 체험하는 발표용 데모입니다.</p>
 <div class="flow"><a href="#story" data-i18n="flowStory">① 이야기 감상</a><a href="#shops" data-i18n="flowShops">② 주변 상점</a><a href="#review" data-i18n="flowReview">③ 후기 참여</a><a href="#voucher" data-i18n="flowVoucher">④ 바우처</a></div>
 <a class="qrbtn" data-i18n="qrButton" data-local-link="" href="qr.html">▦ QR 보기</a>
 </header>
-<main class="main">
+<main class="main" id="nonsanContent">
 <section class="card" id="story"><span class="tag" data-i18n="storyTag">STORY · 이야기 감상</span><h2 data-i18n="storyTitle">논산의 이야기를 만나보세요</h2><p data-i18n="storyDescription">사진과 소개글, 한국어·일본어 음성으로 돈암서원과 탑정호를 만나보세요.</p><article class="destination-story" id="story-donam" aria-labelledby="donam-title"><img class="story-photo" src="assets/donam-seowon.jpg" alt="눈 덮인 돈암서원의 전경" data-i18n-alt="donamAlt" loading="lazy" width="1200" height="800"/><h3 id="donam-title" data-i18n="donamTitle">돈암서원</h3><p data-i18n="donamText">돈암서원은 사계 김장생(1548~1631)의 강학 기반을 배경으로 건립된 서원이다. 황강 김계휘가 건립한 정회당과 김장생이 건립한 양성당에서 수학한 김장생의 제자들이 후에 스승을 추모하며 기리기 위하여 돈암서원을 건립하였다.</p><div class="audioBox"><strong data-i18n="storyAudioTitle">음성 이야기</strong><p data-i18n="storyAudioAvailable">한국어·일본어 음성 안내</p><button class="listenBtn" data-i18n="play" id="playBtnDonam" type="button">▶ 이야기 바로 듣기</button><audio controls id="storyAudioDonam" preload="metadata" src="assets/audio/donam-ko.mp3"><span data-i18n="audioUnsupported"></span></audio><p class="status" id="audioStatusDonam" role="status"></p></div></article><article class="destination-story" id="story-tapjeong" aria-labelledby="tapjeong-title"><img class="story-photo" src="assets/tapjeongho.jpg" alt="노을이 비치는 탑정호와 출렁다리" data-i18n-alt="tapjeongAlt" loading="lazy" width="1500" height="1000"/><h3 id="tapjeong-title" data-i18n="tapjeongTitle">탑정호</h3><p data-i18n="tapjeongText">탑정호는 고려시대의 역사와 전승이 남아 있는 ‘탑정리’ 일대에 1944년 농업용수 확보를 위해 조성된 저수지로, 이후 수변생태공원과 관광시설(출렁다리, 음악분수 등)이 조성되면서 농업용 저수지에서 논산을 대표하는 관광·휴양 공간으로 변화해 왔다.</p><div class="audioBox"><strong data-i18n="storyAudioTitle">음성 이야기</strong><p data-i18n="storyAudioAvailable">한국어·일본어 음성 안내</p><button class="listenBtn" data-i18n="play" id="playBtnTapjeong" type="button">▶ 이야기 바로 듣기</button><audio controls id="storyAudioTapjeong" preload="metadata" src="assets/audio/tapjeong-ko.mp3"><span data-i18n="audioUnsupported"></span></audio><p class="status" id="audioStatusTapjeong" role="status"></p></div></article></section>
 <section class="card" id="shops">
 <span class="tag" data-i18n="shopsTag">NEARBY · 주변 상점</span>
@@ -52,6 +53,14 @@
 <div class="voucher locked" id="voucherBox"><div data-i18n="voucherLocked">후기 참여 완료 시 사용 가능</div><strong>₩1,000</strong><div>MUSUBU DEMO VOUCHER</div><button data-i18n="useVoucher" disabled="" id="useVoucher" type="button">사용 처리</button></div>
 <p class="notice" data-i18n="voucherNotice">발표용 모의 바우처이며 실제 결제에는 사용할 수 없습니다. 이 화면에서 저장한 후기만 발급 조건에 반영됩니다.</p>
 </section>
+</main>
+<main class="main" id="fukuokaContent" hidden>
+<section class="card" id="fukuoka-story"><span class="tag" data-region-text="storyTag"></span><h2 data-region-text="storyTitle"></h2><p data-region-text="storyIntro"></p>
+<div class="region-empty"><span class="region-symbol" aria-hidden="true">✦</span><h3 data-region-text="storyPending"></h3><p data-region-text="storyNote"></p><p class="notice" data-region-text="authorNote"></p></div></section>
+<section class="card" id="fukuoka-shops"><span class="tag" data-region-text="shopsTag"></span><h2 data-region-text="shopsTitle"></h2><p data-region-text="shopsNote"></p><div class="shops">
+<div class="shop"><b data-region-text="cafe"></b><small data-region-text="coming"></small></div><div class="shop"><b data-region-text="food"></b><small data-region-text="coming"></small></div><div class="shop"><b data-region-text="gift"></b><small data-region-text="coming"></small></div></div></section>
+<section class="card" id="fukuoka-review"><span class="tag" data-region-text="reviewTag"></span><h2 data-region-text="reviewTitle"></h2><p data-region-text="reviewNote"></p><button class="submit" disabled type="button" data-region-text="reviewPending"></button></section>
+<section class="card" id="fukuoka-voucher"><span class="tag" data-region-text="voucherTag"></span><h2 data-region-text="voucherTitle"></h2><div class="voucher locked"><strong data-region-text="coming"></strong><div>MUSUBU DEMO VOUCHER</div></div><p class="notice" data-region-text="voucherNote"></p></section>
 </main>
 <footer data-i18n="footer">むすぶ · 논산과 후쿠오카를 잇다 · 발표용 프로토타입</footer>
 </div>
@@ -93,4 +102,5 @@
 <script src="shops.js"></script>
 <script src="app.js"></script>
 <script src="audio.js?v=20261006-audio"></script>
+<script src="regions.js?v=1"></script>
 </body></html>
