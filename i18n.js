@@ -10,7 +10,7 @@
     "flowShops": "② 주변 상점",
     "flowReview": "③ 후기 참여",
     "flowVoucher": "④ 바우처",
-    "qrButton": "▦ 발표용 QR 보기",
+    "qrButton": "▦ QR 보기",
     "storyTag": "STORY · 이야기 감상",
     "storyTitle": "논산 주민의 이야기를 들어보세요",
     "storyDescription": "지역 주민의 실제 목소리를 바탕으로 관광지의 기억과 생활문화를 전달하는 방식의 데모입니다. 아래 일본어 음성은 사용자가 제공한 원본 MP3를 그대로 연결했습니다.",
